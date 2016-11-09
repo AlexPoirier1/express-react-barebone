@@ -2,17 +2,21 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('*', function(req, res) {
+router.get('/', function(req, res) {
   res.render('index');
 });
 
 router.get('/api/*', function(req, res) {
-  switch(req) {
+  var data;
+  var path = req.path.substr(req.path.indexOf('/api/')); //fixme remove /api/
+  switch(path) {
     // route to the correct API function here
     default:
-      res.json({data: 'dummyData'});
+      data = {API_requested_path: path};
+      res.json(data);
       break;
   }
+  res.render('api_ui', {data: data});
 });
 
 module.exports = router;
