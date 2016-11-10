@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
 
 router.get('/api/*', function(req, res) {
   var data;
-  var path = req.path.substr(req.path.indexOf('/api/')); //fixme remove /api/
+  var path = req.path.substr(req.path.indexOf('/api/') + 5);
   switch(path) {
     // route to the correct API function here
     default:
@@ -16,7 +16,6 @@ router.get('/api/*', function(req, res) {
       res.json(data);
       break;
   }
-  res.render('api_ui', {data: data});
 });
 
 module.exports = router;

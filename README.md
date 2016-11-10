@@ -1,6 +1,1 @@
 # Express-react-barebone
-
-WORK IN PROGRESS
-FOR PERSONNAL USE.
-
-USE AT YOUR OWN RISKS.
